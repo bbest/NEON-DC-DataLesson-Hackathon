@@ -12,7 +12,7 @@ output:
 
 See notes: [Module Five - Making Pretty Maps & Plots - Google Docs](https://docs.google.com/document/d/1g6E8bxHtT-GZFh3T99l4laZra7jHwM0y8h-3Slr-MAE/edit#)
 
-- To view rendered HTML, see [rawgit.com/.../group05_visualization.html]( https://cdn.rawgit.com/bbest/NEON-DC-DataLesson-Hackathon/code/group05_visualization.html)
+To view rendered HTML, see: [bbest.github.io/NEON-DC-DataLesson-Hackathon/code/group05_visualization.html](http://bbest.github.io/NEON-DC-DataLesson-Hackathon/code/group05_visualization.html).
 
 
 ## Learning Objectives
@@ -20,21 +20,21 @@ See notes: [Module Five - Making Pretty Maps & Plots - Google Docs](https://docs
 After completing this activity, you will know:
 
 - Visual Outputs, generic to time series or maps
-  - Outputting to different formats: pdf, png w/ resolution. html/pdf.
-  - post-process in Adobe Illustrator or Inkscape
-  - Titles, axes labels. margins.
-  - Legends
-  - Tiling / Faceting.
-  - Color ramps. Choosing color ramps for types of data: categorical, continuous. - divergent. colorblind. Best practice for this data. Link out to more.
+    - Outputting to different formats: pdf, png w/ resolution. html/pdf.
+    - post-process in Adobe Illustrator or Inkscape
+    - Titles, axes labels. margins.
+    - Legends
+    - Tiling / Faceting.
+    - Color ramps. Choosing color ramps for types of data: categorical, continuous. - divergent. colorblind. Best practice for this data. Link out to more.
 - Production Quality Maps, ie Cartography
-  - Scalebar, projection, N arrow. map-specific
-  - Symbology. pts, lines.
+    - Scalebar, projection, N arrow. map-specific
+    - Symbology. pts, lines.
 - Interactive
-  - web-based interactive plot using Javascript libraries 
-  - specifics for R today, htmlwidgets R packages: leaflet, dygraphs
+    - web-based interactive plot using Javascript libraries 
+    - specifics for R today, htmlwidgets R packages: leaflet, dygraphs
 - Animation
-  - existing raster time series animation of chm tower air shed
-  - add time series next to it. point / pixel of individual stations + average. min/max/avg:
+    - existing raster time series animation of chm tower air shed
+    - add time series next to it. point / pixel of individual stations + average. min/max/avg:
 
 How to import rasters into `R` using the raster library.
 How to perform raster calculations in `R`.
@@ -146,7 +146,8 @@ myPlot + scale_x_datetime(labels = date_format("%m/%d/%y"))
 
 ## Interactive Plot: Time-Series
 
-```{r interactive_timeseries}
+```{r interactive_timeseries, eval=T}
+# warning: resource intensive / time consuming to knit (~ 1 min)
 
 # drop duplicate datetimes and assign rownames for later conversion to xts
 ts = yr.09.11[!duplicated(as.character(yr.09.11$datetime)),]
