@@ -10,9 +10,9 @@ output:
 
 # Group 5 - Visualization: Making Pretty Maps and Plots
 
-See notes: [Module Five - Making Pretty Maps & Plots - Google Docs](https://docs.google.com/document/d/1g6E8bxHtT-GZFh3T99l4laZra7jHwM0y8h-3Slr-MAE/edit#)
+**Notes** in Google Docs: [Module Five - Making Pretty Maps & Plots - Google Docs](https://docs.google.com/document/d/1g6E8bxHtT-GZFh3T99l4laZra7jHwM0y8h-3Slr-MAE/edit#)
 
-To view rendered HTML, see: [bbest.github.io/NEON-DC-DataLesson-Hackathon/code/group05_visualization.html](http://bbest.github.io/NEON-DC-DataLesson-Hackathon/code/group05_visualization.html).
+**HTML** rendered of this Rmd: [bbest.github.io/NEON-DC-DataLesson-Hackathon/code/group05_visualization.html](http://bbest.github.io/NEON-DC-DataLesson-Hackathon/code/group05_visualization.html).
 
 
 ## Learning Objectives
@@ -41,6 +41,8 @@ How to perform raster calculations in `R`.
 
 
 
+
+
 ```{r setup}
 suppressPackageStartupMessages({
   library(raster)       # work with rasters
@@ -56,6 +58,7 @@ suppressPackageStartupMessages({
   library(leaflet)      # interactive maps htmlwidget
   library(RColorBrewer) # color ramps
   library(dygraphs)     # interactive time-series htmlwidget
+  library(stringr)
 })
 
 #set the working directory
@@ -63,6 +66,24 @@ wd = '~/github/NEON-DC-DataLesson-Hackathon/code/1_WorkshopData'
 setwd(wd)
 opts_knit$set(root.dir=wd)
 ```
+
+```{r}
+dir = '~/github/NEON-DC-DataLesson-Hackathon/code/1_WorkshopData/Landsat_NDVI/HARV/2011/ndvi'
+
+d = data_frame(
+  fname = list.files(wd)) %>%
+  mutate(
+    sfx = str_replace(fname, '([0-9]+)_(.*)', '\\2'),
+    jday = as.integer(str_extract(fname, '[0-9]+')))
+
+sprintf('%03d_%s\n', d$jday, d$sfx)
+
+# http://www.regexr.com/
+```
+
+
+```
+
 
 ## Quick Plot: Raster
 
